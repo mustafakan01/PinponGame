@@ -32,11 +32,39 @@ const drawText=(text,x,y,color)=>{
     ctx.fillText(text,x,y)
 }
 
+const com ={
+    x:cvs.width-30,
+    y:cvs.height/2-50,
+    w:10,
+    h:100,
+    color:'#fff',
+    score:0
+}
+
+
+const user ={
+    x:20,
+    y:cvs.height/2-50,
+    w:10,
+    h:100,
+    color:'#fff',
+    score:0
+}
+
+const
+
 const render=()=>{
     drawRect(0,0,cvs.width,cvs.height,'#008374')
     drawRect(cvs.width/2-2,0,4,cvs.height,'#fff')
     drawCircleF(cvs.width/2,cvs.height/2,8,'#fff')
     drawCircleS(cvs.width/2,cvs.height/2,50,4,'#fff')
+    drawText(user.score,cvs.width/4,100,'#fff')
+    drawText(com.score,3*cvs.width/4,100,'#fff')
+
+
+    drawRect(user.x,user.y,user.w,user.h,user.color)
+    drawRect(com.x,com.y,com.w,com.h,com.color)
+
     
 }
 
