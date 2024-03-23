@@ -32,7 +32,12 @@ const drawText=(text,x,y,color)=>{
     ctx.fillText(text,x,y)
 }
 
-drawRect(0,0,600,400,'#000')
-drawCircleF(50,50,10,'#fff')
-drawCircleS(250,250,50,10,'#fff')
-drawText('Deneme',400,200,'#fff')
+const render=()=>{
+    drawRect(0,0,cvs.width,cvs.height,'#008374')
+    drawRect(cvs.width/2-2,0,4,cvs.height,'#fff')
+    drawCircleF(cvs.width/2,cvs.height/2,8,'#fff')
+    drawCircleS(cvs.width/2,cvs.height/2,50,4,'#fff')
+    
+}
+
+render()
