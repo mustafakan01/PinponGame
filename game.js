@@ -51,7 +51,36 @@ const user ={
     score:0
 }
 
-const
+const ball={
+    x:cvs.width/2,
+    y:cvs.height/2,
+    r:13,
+    color:'#a51890',
+    speed:1,
+    velocityX:3,
+    velocityY:4,
+    stop:true
+}
+
+const move=(e)=>{
+    let rect=cvs.getBoundingClientRect()
+    user.y=e.clientY-rect.top-user.h/2
+}
+
+cvs.addEventListener('mousemove',move)
+
+const update=()=>{
+    ball.x+=ball.velocityX
+    ball.x+=ball.velocityY
+    if(ball.y+ball.r > cvs.height || ball.y-ball.r<0)
+    ball.velocityY=-ball.velocityY
+
+
+    let comLvl=0.5 
+    com.y+=(ball.y-(com.y+com.h/2))*comLvl
+}
+
+
 
 const render=()=>{
     drawRect(0,0,cvs.width,cvs.height,'#008374')
@@ -64,8 +93,16 @@ const render=()=>{
 
     drawRect(user.x,user.y,user.w,user.h,user.color)
     drawRect(com.x,com.y,com.w,com.h,com.color)
+    drawCircleF(ball.x,ball.y,ball.r,ball.color)
 
     
 }
 
-render()
+const game=()=>{
+    update()
+    render()
+}
+
+
+const fps=50
+setInterval(game,1000/fps)
